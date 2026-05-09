@@ -204,7 +204,7 @@ st.markdown("""
     among students. Instead of looking at numbers alone, the analysis highlights how many students
     are silently experiencing depression, sleep issues, distraction, and emotional dependence on
     online validation. Nearly <b>46% of students feel depressed</b> and <b>49% face sleep problems</b>
-    — directly linked to excessive social media use.
+     directly linked to excessive social media use.
 </div>
 """, unsafe_allow_html=True)
 
@@ -332,7 +332,7 @@ st.markdown("""
 <div class='interpretation-box'>
      <b>Interpretation:</b> Instagram, YouTube, Facebook, and TikTok are the most commonly used
     platforms among students. These platforms are known for highly engaging, addictive content that
-    keeps users scrolling for hours — directly contributing to mental health issues.
+    keeps users scrolling for hours  directly contributing to mental health issues.
 </div>
 """, unsafe_allow_html=True)
 
@@ -357,7 +357,7 @@ with col1:
     st.markdown("""
     <div class='interpretation-box'>
          Around 35% of students reported negative feelings when comparing themselves to others
-        on social media feeling emotionally uncomfortable after scrolling through others' lives.
+        on social media feeling emotionally uncomfortable after scrolling through others lives.
     </div>
     """, unsafe_allow_html=True)
 
@@ -510,7 +510,7 @@ st.markdown("""
 <div class='interpretation-box'>
      <b>Interpretation:</b> Limiting daily social media usage to less than two hours could have
     the strongest positive impact on student mental health. Awareness campaigns score highest on
-    feasibility — making them the easiest solution to implement immediately.
+    feasibility  making them the easiest solution to implement immediately.
 </div>
 """, unsafe_allow_html=True)
 
@@ -543,7 +543,7 @@ fig_em.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
     yaxis=dict(title='% of Students', gridcolor='#333'),
     margin=dict(t=80, b=60))
 fig_em.add_annotation(
-    text="These are not just numbers — these are your classmates, your friends, maybe YOU.",
+    text="These are not just numbers  these are your classmates, your friends, maybe YOU.",
     xref="paper", yref="paper", x=0.5, y=-0.15,
     showarrow=False, font=dict(size=13, color='#aaaaaa'), xanchor='center')
 st.plotly_chart(fig_em, use_container_width=True)
@@ -553,7 +553,7 @@ st.markdown("""
      <b>Interpretation:</b> This final visualization reveals the emotional reality behind the data.
     More than half of the students reported using social media without a clear purpose, while nearly
     half experienced depression and sleep-related problems. A significant number also reported
-    comparing themselves to others online — leading to emotional dissatisfaction.
+    comparing themselves to others online  leading to emotional dissatisfaction.
 </div>
 """, unsafe_allow_html=True)
 
