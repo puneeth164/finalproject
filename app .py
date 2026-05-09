@@ -152,14 +152,14 @@ with col2:
     st.markdown(f"""
     <div class='metric-card'>
         <div class='metric-value'>{depressed/total*100:.0f}%</div>
-        <div class='metric-label'>😔 Feel Depressed</div>
+        <div class='metric-label'>Feel Depressed</div>
     </div>""", unsafe_allow_html=True)
 
 with col3:
     st.markdown(f"""
     <div class='metric-card'>
         <div class='metric-value'>{sleep_issues/total*100:.0f}%</div>
-        <div class='metric-label'>😴 Sleep Problems</div>
+        <div class='metric-label'>Sleep Problems</div>
     </div>""", unsafe_allow_html=True)
 
 with col4:
@@ -173,7 +173,7 @@ with col5:
     st.markdown(f"""
     <div class='metric-card'>
         <div class='metric-value'>{validation/total*100:.0f}%</div>
-        <div class='metric-label'>👍 Seek Validation</div>
+        <div class='metric-label'> Seek Validation</div>
     </div>""", unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -208,7 +208,7 @@ st.markdown("---")
 # ============================================
 # STEP 2: THE CONTEXT
 # ============================================
-st.markdown("## 📖 The Context")
+st.markdown("## The Context")
 
 col1, col2, col3 = st.columns(3)
 
@@ -266,7 +266,7 @@ st.markdown("---")
 # ============================================
 # STEP 3: THE CONFLICT
 # ============================================
-st.markdown("## ⚡ The Conflict")
+st.markdown("## The Conflict")
 
 col1, col2 = st.columns(2)
 
@@ -313,12 +313,12 @@ st.markdown("---")
 # ============================================
 # STEP 4: THE JOURNEY
 # ============================================
-st.markdown("## 🔍 The Journey")
+st.markdown("## The Journey")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("### ☁️ Which Platforms Do Students Use?")
+    st.markdown("### Which Platforms Do Students Use?")
     platform_text = filtered_df['Platforms'].dropna().str.cat(sep=' ')
     platform_text = re.sub(r'[^a-zA-Z\s]', '', platform_text.lower())
     stopwords = set([
@@ -343,11 +343,11 @@ with col1:
         st.info("Not enough data for word cloud with current filters!")
 
 with col2:
-    st.markdown("### 😊 How Do Students Feel About Comparisons?")
+    st.markdown("### How Do Students Feel About Comparisons?")
     def map_sentiment(score):
-        if score <= 2: return 'Negative 😔'
-        elif score == 3: return 'Neutral 😐'
-        else: return 'Positive 😊'
+        if score <= 2: return 'Negative '
+        elif score == 3: return 'Neutral '
+        else: return 'Positive '
 
     filtered_df['Comparison_Sentiment'] = filtered_df['Comparison_Feeling'].apply(map_sentiment)
     sent_counts = filtered_df['Comparison_Sentiment'].value_counts().reset_index()
@@ -356,9 +356,9 @@ with col2:
         sent_counts, values='Count', names='Sentiment',
         color='Sentiment',
         color_discrete_map={
-            'Positive 😊': '#2ecc71',
-            'Neutral 😐': '#FFB400',
-            'Negative 😔': '#e74c3c'
+            'Positive ': '#2ecc71',
+            'Neutral ': '#FFB400',
+            'Negative ': '#e74c3c'
         },
         hole=0.4
     )
@@ -405,7 +405,7 @@ st.markdown("---")
 # ============================================
 # STEP 5: THE RESOLUTION
 # ============================================
-st.markdown("## 💡 The Resolution")
+st.markdown("##  The Resolution")
 
 col1, col2 = st.columns(2)
 
@@ -473,7 +473,7 @@ st.markdown("---")
 # ============================================
 # STEP 6: CALL TO ACTION
 # ============================================
-st.markdown("## 📢 Call to Action")
+st.markdown("##  Call to Action")
 
 solutions = pd.DataFrame({
     'Solution': [
@@ -495,7 +495,7 @@ sol_melted = solutions.melt(
 fig_cta = px.bar(
     sol_melted, x='Solution', y='Score',
     color='Solution', animation_frame='Metric',
-    title='📢 What Solutions Work Best? (Press ▶ Play!)',
+    title=' What Solutions Work Best? (Press ▶ Play!)',
     color_discrete_sequence=['#FF5A5F','#007A87','#FFB400','#2ecc71','#9b59b6'],
     range_y=[0,110], text='Score'
 )
@@ -512,7 +512,7 @@ st.markdown("---")
 # ============================================
 # STEP 7: EMOTIONAL APPEAL
 # ============================================
-st.markdown("## ❤️ The Emotional Appeal")
+st.markdown("## The Emotional Appeal")
 
 final_data = pd.DataFrame({
     'Category': [
@@ -534,7 +534,7 @@ final_data = pd.DataFrame({
 fig_emotion = px.bar(
     final_data, x='Category', y='Percentage',
     color='Percentage', color_continuous_scale='Reds',
-    title='❤️ Behind Every Percentage — A Real Student Is Struggling',
+    title=' Behind Every Percentage - A Real Student Is Struggling',
     text=final_data['Percentage'].round(1), range_y=[0,100]
 )
 fig_emotion.update_traces(texttemplate='%{text}%', textposition='outside')
@@ -559,7 +559,6 @@ st.markdown("""
     <p style='color:#aaaaaa !important; font-size:1.1rem;'>
         These are real students — struggling every day.<br>
         One scroll at a time — their mental health fades.<br>
-        <b style='color:white;'>The data is clear. The time to act is NOW.</b>
     </p>
 </div>
 """, unsafe_allow_html=True)
