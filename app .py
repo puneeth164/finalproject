@@ -301,7 +301,7 @@ st.markdown("""
      <b>Interpretation:</b> The graphs reveal a clear upward trend between daily social media usage
     and average depression scores. Students spending less than one hour report the lowest depression
     scores (~2.0), while those using it for more than 5 hours show the highest scores (~3.5+).
-    The same pattern holds for sleep issues — more screen time directly leads to worse sleep quality.
+    The same pattern holds for sleep issues  more screen time directly leads to worse sleep quality.
 </div>
 """, unsafe_allow_html=True)
 
