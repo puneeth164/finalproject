@@ -113,7 +113,7 @@ total = len(filtered_df)
 st.markdown("""
 <div style='text-align:center; padding:30px 0 10px 0;'>
     <h1 style='font-size:2.8rem; color:#FF5A5F !important;'>📱 Social Media & Student Well-being</h1>
-    <h3 style='color:#aaaaaa !important;'>FINAL PROJECT — VISUAL ANALYTICS & COMM. DSA506-01-2651</h3>
+    <h3 style='color:#aaaaaa !important;'>FINAL PROJECT - VISUAL ANALYTICS & COMM. DSA506-01-2651</h3>
     <p style='color:#dddddd !important; font-size:1rem;'>VENKATA PUNEETH SRIRAMANENI</p>
 </div>
 """, unsafe_allow_html=True)
@@ -142,7 +142,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 1: THE HOOK
 # ============================================
-st.markdown("## 🎬 The Hook")
+st.markdown("## The Hook")
 st.markdown("### *Is social media silently breaking student mental health?*")
 
 depressed = len(filtered_df[filtered_df['Depression_Score'] >= 4])
@@ -357,7 +357,7 @@ with col1:
     st.markdown("""
     <div class='interpretation-box'>
          Around 35% of students reported negative feelings when comparing themselves to others
-        on social media — feeling emotionally uncomfortable after scrolling through others' lives.
+        on social media feeling emotionally uncomfortable after scrolling through others' lives.
     </div>
     """, unsafe_allow_html=True)
 
@@ -466,7 +466,6 @@ with col2:
     df_age['Age'] = df_age['Age'].astype(int)
     fig_age = px.scatter(df_age, x='Depression_Score', y='Sleep_Issues',
         animation_frame='Age', color='Gender', size='Worry_Score',
-        title=' Mental Health Pulse Across Ages — Press ▶ Play!',
         color_discrete_map={'Male':'#007A87','Female':'#FF5A5F',
                             'Non-binary':'#FFB400','Other':'#aaaaaa'},
         range_x=[0,6], range_y=[0,6], size_max=25,
@@ -477,7 +476,7 @@ with col2:
     st.markdown("""
     <div class='interpretation-box'>
          Students with higher depression scores also tend to report more sleep-related problems.
-        Larger bubble sizes indicate higher worry levels — emotional stress increases alongside
+        Larger bubble sizes indicate higher worry levels  emotional stress increases alongside
         depression and sleep issues across different age groups.
     </div>
     """, unsafe_allow_html=True)
@@ -499,7 +498,6 @@ solutions = pd.DataFrame({
 sol_melted = solutions.melt(id_vars='Solution', var_name='Metric', value_name='Score')
 fig_cta = px.bar(sol_melted, x='Solution', y='Score',
     color='Solution', animation_frame='Metric',
-    title=' What Solutions Work Best? Press ▶ Play!',
     color_discrete_sequence=['#FF5A5F','#007A87','#FFB400','#2ecc71','#9b59b6'],
     range_y=[0,110], text='Score')
 fig_cta.update_traces(texttemplate='%{text}%', textposition='outside')
@@ -575,7 +573,6 @@ st.markdown("""
     TikTok and Snapchat were linked to the highest depression scores. The data strongly suggests that
     <b>limiting screen time, implementing school mental health programs, and increasing awareness</b>
     are the most impactful solutions.<br><br>
-    <b>The data is clear. The time to act is NOW. 📵</b>
 </div>
 """, unsafe_allow_html=True)
 
@@ -584,8 +581,8 @@ st.markdown("""
      border-radius:15px; margin-top:20px;'>
     <h2 style='color:#FF5A5F !important;'>📵 Put the Phone Down.</h2>
     <p style='color:#aaaaaa !important; font-size:1rem;'>
-        These are real students — struggling every day.<br>
-        One scroll at a time — their mental health fades.<br><br>
+        These are real students - struggling every day.<br>
+        One scroll at a time - their mental health fades.<br><br>
         <b style='color:white; font-size:1.1rem;'>VENKATA PUNEETH SRIRAMANENI</b><br>
         <b style='color:#FF5A5F !important;'>Visual Analytics & Comm. DSA506-01-2651 | Final Project</b>
     </p>
