@@ -469,11 +469,11 @@ with col1:
             texttemplate='%{text}', textposition='outside'
         ))
         fig_plat.update_layout(
-            title='Which Platforms Cause Most Depression?',
+            title='Which Platforms Cause Most Depress',
             plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
             font_color='white', title_x=0.5,
             xaxis=dict(tickangle=-20, tickfont=dict(size=10), title=''),
-            yaxis=dict(gridcolor='#333', range=[0,5], title='Avg Depression Score (1-5)'),
+            yaxis=dict(gridcolor='#333', range=[0,5], title='Avg Depression Score'),
             margin=dict(t=60, b=100)
         )
         st.plotly_chart(fig_plat, use_container_width=True)
