@@ -263,7 +263,7 @@ st.markdown("""
 
 st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 
-# STEP 3: THE CONFLICT — FIX 3: go.Figure
+
 st.markdown("## The Conflict")
 
 dep_time = filtered_df.groupby('Time_Spent', observed=True)['Depression_Score']\
@@ -386,11 +386,11 @@ with col2:
         ).round(2).reset_index()
         gender_melted = gender_scores.melt(id_vars='Gender', var_name='Issue', value_name='Score')
         gender_melted['Score'] = gender_melted['Score'].round(2)
-        # FIX 4 — animation title fix
+        
         fig_ganim = px.bar(gender_melted,
             x='Gender', y='Score',
             color='Gender', animation_frame='Issue',
-            title='Press Play — Gender vs Each Mental Health Issue',
+            title=' Gender vs Each Mental Health Issue',
             color_discrete_map={'Female':'#FF5A5F','Male':'#007A87','Non-binary':'#FFB400'},
             range_y=[0,5], text='Score')
         fig_ganim.update_traces(texttemplate='%{text}', textposition='outside')
