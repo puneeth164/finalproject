@@ -123,7 +123,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # INTRODUCTION
 # ============================================
-st.markdown("## 📖 Introduction")
+st.markdown("## Introduction")
 st.markdown("""
 <div class='interpretation-box'>
     Social media has become an important part of students daily lives, influencing communication,
@@ -159,12 +159,12 @@ with col1:
 with col2:
     st.markdown(f"""<div class='metric-card'>
         <div class='metric-value'>{depressed/total*100:.0f}%</div>
-        <div class='metric-label'>😔 Feel Depressed</div>
+        <div class='metric-label'> Feel Depressed</div>
     </div>""", unsafe_allow_html=True)
 with col3:
     st.markdown(f"""<div class='metric-card'>
         <div class='metric-value'>{sleep_issues/total*100:.0f}%</div>
-        <div class='metric-label'>😴 Sleep Problems</div>
+        <div class='metric-label'>Sleep Problems</div>
     </div>""", unsafe_allow_html=True)
 with col4:
     st.markdown(f"""<div class='metric-card'>
@@ -174,7 +174,7 @@ with col4:
 with col5:
     st.markdown(f"""<div class='metric-card'>
         <div class='metric-value'>{validation/total*100:.0f}%</div>
-        <div class='metric-label'>👍 Seek Validation</div>
+        <div class='metric-label'>Seek Validation</div>
     </div>""", unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -200,7 +200,7 @@ st.plotly_chart(fig_hook, use_container_width=True)
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> This section introduces the emotional reality behind social media usage
+     <b>Interpretation:</b> This section introduces the emotional reality behind social media usage
     among students. Instead of looking at numbers alone, the analysis highlights how many students
     are silently experiencing depression, sleep issues, distraction, and emotional dependence on
     online validation. Nearly <b>46% of students feel depressed</b> and <b>49% face sleep problems</b>
@@ -213,7 +213,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 2: THE CONTEXT
 # ============================================
-st.markdown("## 📖 The Context")
+st.markdown("##  The Context")
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -251,7 +251,7 @@ with col3:
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> University students make up the largest portion (~60.7%) of survey
+     <b>Interpretation:</b> University students make up the largest portion (~60.7%) of survey
     participants. Most students spend between 2-4 hours daily on social media, with a significant
     group using it for more than 5 hours. Female participants represent ~54.7% of respondents,
     while male participants account for ~43.9%.
@@ -263,7 +263,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 3: THE CONFLICT
 # ============================================
-st.markdown("## ⚡ The Conflict")
+st.markdown("##  The Conflict")
 
 col1, col2 = st.columns(2)
 with col1:
@@ -272,7 +272,7 @@ with col1:
     dep_time.columns = ['Time_Spent', 'Avg_Depression']
     fig_dep = px.bar(dep_time, x='Time_Spent', y='Avg_Depression',
         color='Avg_Depression', color_continuous_scale='Reds',
-        title='⚡ More Screen Time = More Depression!',
+        title=' More Screen Time = More Depression!',
         text=dep_time['Avg_Depression'].round(2), range_y=[0,5])
     fig_dep.update_traces(texttemplate='%{text}', textposition='outside')
     fig_dep.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
@@ -287,7 +287,7 @@ with col2:
     sleep_time.columns = ['Time_Spent', 'Avg_Sleep']
     fig_sleep = px.bar(sleep_time, x='Time_Spent', y='Avg_Sleep',
         color='Avg_Sleep', color_continuous_scale='Purples',
-        title='⚡ More Screen Time = Worse Sleep!',
+        title=' More Screen Time = Worse Sleep!',
         text=sleep_time['Avg_Sleep'].round(2), range_y=[0,5])
     fig_sleep.update_traces(texttemplate='%{text}', textposition='outside')
     fig_sleep.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
@@ -298,7 +298,7 @@ with col2:
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> The graphs reveal a clear upward trend between daily social media usage
+     <b>Interpretation:</b> The graphs reveal a clear upward trend between daily social media usage
     and average depression scores. Students spending less than one hour report the lowest depression
     scores (~2.0), while those using it for more than 5 hours show the highest scores (~3.5+).
     The same pattern holds for sleep issues — more screen time directly leads to worse sleep quality.
@@ -310,10 +310,10 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 4: THE JOURNEY
 # ============================================
-st.markdown("## 🔍 The Journey")
+st.markdown("##  The Journey")
 
 # Word Cloud
-st.markdown("### ☁️ Which Platforms Do Students Use Most?")
+st.markdown("###  Which Platforms Do Students Use Most?")
 platform_text = filtered_df['Platforms'].dropna().str.cat(sep=' ')
 platform_text = re.sub(r'[^a-zA-Z\s]', '', platform_text.lower())
 stopwords = set(['i','use','using','and','or','the','a','an',
@@ -330,7 +330,7 @@ if len(platform_text.strip()) > 10:
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> Instagram, YouTube, Facebook, and TikTok are the most commonly used
+     <b>Interpretation:</b> Instagram, YouTube, Facebook, and TikTok are the most commonly used
     platforms among students. These platforms are known for highly engaging, addictive content that
     keeps users scrolling for hours — directly contributing to mental health issues.
 </div>
@@ -338,25 +338,25 @@ st.markdown("""
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown("### 😊 Comparison Sentiment Analysis")
+    st.markdown("###  Comparison Sentiment Analysis")
     def map_sentiment(score):
-        if score <= 2: return 'Negative 😔'
-        elif score == 3: return 'Neutral 😐'
-        else: return 'Positive 😊'
+        if score <= 2: return 'Negative '
+        elif score == 3: return 'Neutral '
+        else: return 'Positive '
     filtered_df['Comparison_Sentiment'] = filtered_df['Comparison_Feeling'].apply(map_sentiment)
     sent_counts = filtered_df['Comparison_Sentiment'].value_counts().reset_index()
     sent_counts.columns = ['Sentiment', 'Count']
     fig_sent = px.pie(sent_counts, values='Count', names='Sentiment',
         title='How Students Feel About Comparisons?',
         color='Sentiment',
-        color_discrete_map={'Positive 😊':'#2ecc71','Neutral 😐':'#FFB400','Negative 😔':'#e74c3c'},
+        color_discrete_map={'Positive ':'#2ecc71','Neutral ':'#FFB400','Negative ':'#e74c3c'},
         hole=0.4)
     fig_sent.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
         font_color='white', title_x=0.5, title_font_size=14)
     st.plotly_chart(fig_sent, use_container_width=True)
     st.markdown("""
     <div class='interpretation-box'>
-        📌 Around 35% of students reported negative feelings when comparing themselves to others
+         Around 35% of students reported negative feelings when comparing themselves to others
         on social media — feeling emotionally uncomfortable after scrolling through others' lives.
     </div>
     """, unsafe_allow_html=True)
@@ -384,13 +384,13 @@ with col2:
         st.plotly_chart(fig_ganim, use_container_width=True)
     st.markdown("""
     <div class='interpretation-box'>
-        📌 Female participants reported slightly higher levels of depression and worry compared
+         Female participants reported slightly higher levels of depression and worry compared
         to male participants. Non-binary students showed the highest depression scores overall.
     </div>
     """, unsafe_allow_html=True)
 
 # Heatmap
-st.markdown("### 🔥 Mental Health Correlation Heatmap")
+st.markdown("###  Mental Health Correlation Heatmap")
 mental_cols = ['Depression_Score','Sleep_Issues','Worry_Score',
                'Validation_Score','Comparison_Score','Distraction']
 corr_matrix = filtered_df[mental_cols].corr()
@@ -411,7 +411,7 @@ st.pyplot(fig_hm)
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> The heatmap shows that several mental health issues are strongly
+     <b>Interpretation:</b> The heatmap shows that several mental health issues are strongly
     connected. The strongest relationship appears between worry and depression scores, suggesting
     that students who feel more emotionally stressed are also more likely to experience depressive
     feelings. Depression and sleep issues also show a strong positive correlation.
@@ -423,7 +423,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 5: THE RESOLUTION
 # ============================================
-st.markdown("## 💡 The Resolution")
+st.markdown("##  The Resolution")
 
 col1, col2 = st.columns(2)
 with col1:
@@ -444,7 +444,7 @@ with col1:
             .sort_values('Avg_Depression', ascending=False).head(10)
         fig_plat = px.bar(platform_summary, x='Platform', y='Avg_Depression',
             color='Avg_Depression', color_continuous_scale='Reds',
-            title='💡 Which Platforms Cause Most Depression?',
+            title=' Which Platforms Cause Most Depression?',
             text=platform_summary['Avg_Depression'].round(2), range_y=[0,5])
         fig_plat.update_traces(texttemplate='%{text}', textposition='outside')
         fig_plat.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
@@ -454,19 +454,19 @@ with col1:
         st.plotly_chart(fig_plat, use_container_width=True)
     st.markdown("""
     <div class='interpretation-box'>
-        📌 TikTok and Snapchat show the highest average depression scores. Platforms built around
+         TikTok and Snapchat show the highest average depression scores. Platforms built around
         short-form, comparison-heavy content are more harmful to student mental health than
         informational platforms like YouTube.
     </div>
     """, unsafe_allow_html=True)
 
 with col2:
-    st.markdown("### 🎬 Age vs Mental Health (Animated)")
+    st.markdown("###  Age vs Mental Health (Animated)")
     df_age = filtered_df[(filtered_df['Age'] >= 13) & (filtered_df['Age'] <= 35)].copy()
     df_age['Age'] = df_age['Age'].astype(int)
     fig_age = px.scatter(df_age, x='Depression_Score', y='Sleep_Issues',
         animation_frame='Age', color='Gender', size='Worry_Score',
-        title='🎬 Mental Health Pulse Across Ages — Press ▶ Play!',
+        title=' Mental Health Pulse Across Ages — Press ▶ Play!',
         color_discrete_map={'Male':'#007A87','Female':'#FF5A5F',
                             'Non-binary':'#FFB400','Other':'#aaaaaa'},
         range_x=[0,6], range_y=[0,6], size_max=25,
@@ -476,7 +476,7 @@ with col2:
     st.plotly_chart(fig_age, use_container_width=True)
     st.markdown("""
     <div class='interpretation-box'>
-        📌 Students with higher depression scores also tend to report more sleep-related problems.
+         Students with higher depression scores also tend to report more sleep-related problems.
         Larger bubble sizes indicate higher worry levels — emotional stress increases alongside
         depression and sleep issues across different age groups.
     </div>
@@ -487,7 +487,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 6: CALL TO ACTION
 # ============================================
-st.markdown("## 📢 Call to Action")
+st.markdown("##  Call to Action")
 
 solutions = pd.DataFrame({
     'Solution': ['Limit Screen\nTime < 2hrs','School Mental\nHealth Programs',
@@ -499,7 +499,7 @@ solutions = pd.DataFrame({
 sol_melted = solutions.melt(id_vars='Solution', var_name='Metric', value_name='Score')
 fig_cta = px.bar(sol_melted, x='Solution', y='Score',
     color='Solution', animation_frame='Metric',
-    title='📢 What Solutions Work Best? Press ▶ Play!',
+    title=' What Solutions Work Best? Press ▶ Play!',
     color_discrete_sequence=['#FF5A5F','#007A87','#FFB400','#2ecc71','#9b59b6'],
     range_y=[0,110], text='Score')
 fig_cta.update_traces(texttemplate='%{text}%', textposition='outside')
@@ -510,7 +510,7 @@ st.plotly_chart(fig_cta, use_container_width=True)
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> Limiting daily social media usage to less than two hours could have
+     <b>Interpretation:</b> Limiting daily social media usage to less than two hours could have
     the strongest positive impact on student mental health. Awareness campaigns score highest on
     feasibility — making them the easiest solution to implement immediately.
 </div>
@@ -521,7 +521,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 7: EMOTIONAL APPEAL
 # ============================================
-st.markdown("## ❤️ The Emotional Appeal")
+st.markdown("##  The Emotional Appeal")
 
 final_data = pd.DataFrame({
     'Category': ['Feel Depressed\nRegularly','Have Sleep\nProblems',
@@ -536,7 +536,7 @@ final_data = pd.DataFrame({
 })
 fig_em = px.bar(final_data, x='Category', y='Percentage',
     color='Percentage', color_continuous_scale='Reds',
-    title='❤️ Behind Every Percentage — A Real Student Is Struggling',
+    title='Behind Every Percentage — A Real Student Is Struggling',
     text=final_data['Percentage'].round(1), range_y=[0,100])
 fig_em.update_traces(texttemplate='%{text}%', textposition='outside')
 fig_em.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
@@ -552,7 +552,7 @@ st.plotly_chart(fig_em, use_container_width=True)
 
 st.markdown("""
 <div class='interpretation-box'>
-    📌 <b>Interpretation:</b> This final visualization reveals the emotional reality behind the data.
+     <b>Interpretation:</b> This final visualization reveals the emotional reality behind the data.
     More than half of the students reported using social media without a clear purpose, while nearly
     half experienced depression and sleep-related problems. A significant number also reported
     comparing themselves to others online — leading to emotional dissatisfaction.
@@ -564,7 +564,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # CONCLUSION
 # ============================================
-st.markdown("## 📊 Conclusion")
+st.markdown("## Conclusion")
 st.markdown("""
 <div class='interpretation-box'>
     This project explored the impact of social media usage on student mental health using numerical,
