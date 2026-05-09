@@ -142,8 +142,8 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 1: THE HOOK
 # ============================================
-st.markdown("## The Hook")
-st.markdown("### *Is social media silently breaking student mental health?*")
+st.markdown("##The Hook")
+st.markdown("###*Is social media silently breaking student mental health?*")
 
 depressed = len(filtered_df[filtered_df['Depression_Score'] >= 4])
 sleep_issues = len(filtered_df[filtered_df['Sleep_Issues'] >= 4])
@@ -213,7 +213,7 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 2: THE CONTEXT
 # ============================================
-st.markdown("##  The Context")
+st.markdown("##The Context")
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -310,10 +310,10 @@ st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 # ============================================
 # STEP 4: THE JOURNEY
 # ============================================
-st.markdown("##  The Journey")
+st.markdown("## The Journey")
 
 # Word Cloud
-st.markdown("###  Which Platforms Do Students Use Most?")
+st.markdown("### Which Platforms Do Students Use Most?")
 platform_text = filtered_df['Platforms'].dropna().str.cat(sep=' ')
 platform_text = re.sub(r'[^a-zA-Z\s]', '', platform_text.lower())
 stopwords = set(['i','use','using','and','or','the','a','an',
@@ -374,7 +374,6 @@ with col2:
         gender_melted = gender_scores.melt(id_vars='Gender', var_name='Issue', value_name='Score')
         fig_ganim = px.bar(gender_melted, x='Gender', y='Score',
             color='Gender', animation_frame='Issue',
-            title='Press ▶ Play — Gender vs Each Issue!',
             color_discrete_map={'Female':'#FF5A5F','Male':'#007A87','Non-binary':'#FFB400'},
             range_y=[0,5], text='Score')
         fig_ganim.update_traces(texttemplate='%{text}', textposition='outside')
@@ -444,7 +443,6 @@ with col1:
             .sort_values('Avg_Depression', ascending=False).head(10)
         fig_plat = px.bar(platform_summary, x='Platform', y='Avg_Depression',
             color='Avg_Depression', color_continuous_scale='Reds',
-            title=' Which Platforms Cause Most Depression?',
             text=platform_summary['Avg_Depression'].round(2), range_y=[0,5])
         fig_plat.update_traces(texttemplate='%{text}', textposition='outside')
         fig_plat.update_layout(plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
@@ -461,7 +459,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.markdown("###  Age vs Mental Health (Animated)")
+    st.markdown("###  Age vs Mental Health")
     df_age = filtered_df[(filtered_df['Age'] >= 13) & (filtered_df['Age'] <= 35)].copy()
     df_age['Age'] = df_age['Age'].astype(int)
     fig_age = px.scatter(df_age, x='Depression_Score', y='Sleep_Issues',
