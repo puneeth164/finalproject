@@ -375,7 +375,7 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    st.markdown("### Gender vs Mental Health (Animated)")
+    st.markdown("### Gender vs Mental Health")
     gender_main = filtered_df[filtered_df['Gender'].isin(['Male','Female','Non-binary'])]
     if len(gender_main) > 0:
         gender_scores = gender_main.groupby('Gender').agg(
@@ -460,7 +460,7 @@ with col1:
         ).reset_index()
         platform_summary = platform_summary[platform_summary['Count'] >= 5]\
             .sort_values('Avg_Depression', ascending=False).head(10)
-        # FIX 5 — explicit color
+        
         fig_plat = go.Figure(go.Bar(
             x=platform_summary['Platform'],
             y=platform_summary['Avg_Depression'],
@@ -492,7 +492,7 @@ with col2:
     fig_age = px.scatter(df_age,
         x='Depression_Score', y='Sleep_Issues',
         animation_frame='Age', color='Gender', size='Worry_Score',
-        title='Mental Health Pulse Across Ages — Press Play!',
+        title='Mental Health Pulse across age',
         color_discrete_map={'Male':'#007A87','Female':'#FF5A5F',
                             'Non-binary':'#FFB400','Other':'#aaaaaa'},
         range_x=[0,6], range_y=[0,6], size_max=25,
@@ -511,7 +511,7 @@ with col2:
 
 st.markdown("<hr style='border:1px solid #333;'>", unsafe_allow_html=True)
 
-# STEP 6: CALL TO ACTION — FIX 6: animation title fix
+# STEP 6: CALL TO ACTION 
 st.markdown("## Call to Action")
 
 solutions = pd.DataFrame({
@@ -525,13 +525,13 @@ sol_melted = solutions.melt(id_vars='Solution', var_name='Metric', value_name='S
 fig_cta = px.bar(sol_melted,
     x='Solution', y='Score',
     color='Solution', animation_frame='Metric',
-    title='What Solutions Work Best? Press Play!',
+    title='What Solutions Work Best?',
     color_discrete_sequence=['#FF5A5F','#007A87','#FFB400','#2ecc71','#9b59b6'],
     range_y=[0,110], text='Score',
     labels={'Score':'Score (%)','Solution':''})
 fig_cta.update_traces(texttemplate='%{text}%', textposition='outside')
 for frame in fig_cta.frames:
-    frame.layout = go.Layout(title_text=f'{frame.name} — Solutions Comparison')
+    frame.layout = go.Layout(title_text=f'{frame.name}  Solutions Comparison')
 fig_cta.update_layout(
     plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
     font_color='white', title_x=0.5, showlegend=False,
@@ -574,7 +574,7 @@ fig_em = go.Figure(go.Bar(
     texttemplate='%{text}%', textposition='outside'
 ))
 fig_em.update_layout(
-    title='Behind Every Percentage — A Real Student Is Struggling',
+    title='Behind Every Percentage - A Real Student Is Struggling',
     plot_bgcolor='#0d0d0d', paper_bgcolor='#0d0d0d',
     font_color='white', title_font_size=18, title_x=0.5,
     showlegend=False,
